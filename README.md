@@ -1,2 +1,1 @@
-# my-vim
-my vimrc file
+A collection of my commonly used dot files
