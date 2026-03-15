@@ -11,7 +11,7 @@ if [ -f "$CACHE_FILE" ]; then
     fi
 fi
 
-weather=$(curl -s --max-time 5 "wttr.in/43.6653,-79.4343?format=%c+%C+%t++💧%h++💨%w" 2>/dev/null | tr -d '+' | sed 's/  */ /g')
+weather=$(curl -s --max-time 5 "wttr.in/?format=%c+%C+%t++💧%h++💨%w" 2>/dev/null | tr -d '+' | sed 's/  */ /g')
 if [ -n "$weather" ] && ! echo "$weather" | grep -q "Unknown"; then
     echo "$weather" > "$CACHE_FILE"
     echo "$weather"

@@ -46,7 +46,7 @@ After installation, open tmux and press `prefix + I` to install tmux plugins.
 
 Nord-themed status bar showing:
 - Session name (left)
-- Weather for Toronto (cached, via wttr.in)
+- Weather for current location (auto-detected via wttr.in)
 - Battery percentage
 - Date and time
 
