@@ -10,7 +10,8 @@ A collection of my commonly used dotfiles for macOS.
 | `tmux-scripts/weather.sh` | Cached weather script for the tmux status bar (refreshes every 15 min) |
 | `vimrc` | Vim config with CoC, YCM, FZF, ALE, and various language plugins |
 | `bashrc` | Bash config with aliases, FZF integration, and utility functions (Google search, Chrome history) |
-| `.zshrc` | Zsh config with Zplugin, Powerlevel10k theme, syntax highlighting, and autosuggestions |
+| `.zshrc` | Zsh config with Zap plugin manager, Powerlevel10k theme, syntax highlighting, and autosuggestions |
+| `.zshrc.local.example` | Template for machine-specific settings (Java, Conda, work aliases) — copy to `~/.zshrc.local` |
 
 ## Quick Setup
 
@@ -26,9 +27,14 @@ The install script will:
 1. Back up any existing dotfiles to `~/.dotfiles-backup-<timestamp>/`
 2. Symlink configs to their expected locations
 3. Install TPM (Tmux Plugin Manager) if not already present
-4. Create required Vim directories
+4. Install Zap (Zsh plugin manager) if not already present
+5. Create required Vim directories
+6. Copy `.zshrc.local.example` to `~/.zshrc.local` if it doesn't exist
 
-After installation, open tmux and press `prefix + I` to install tmux plugins.
+After installation:
+- Edit `~/.zshrc.local` for machine-specific settings (Java, Conda, work aliases)
+- Open tmux and press `prefix + I` to install tmux plugins
+- Open vim and run `:PlugInstall` to install vim plugins
 
 ## Tmux
 
@@ -75,4 +81,6 @@ Uses vim-plug for plugin management. Key plugins: CoC (LSP), YCM, FZF, ALE (lint
 
 ## Shell
 
-Both `bashrc` and `.zshrc` include aliases for common operations. The zsh config uses Zplugin with Powerlevel10k, fast-syntax-highlighting, and autosuggestions.
+The `.zshrc` uses Zap for plugin management with Powerlevel10k, syntax highlighting, and autosuggestions. It includes FZF functions (`ff`, `fcd`, `fgb`, `fgl`, `frg`, `fkill`), git aliases, and package manager aliases (npm/yarn/pnpm with smart detection).
+
+Machine-specific settings (Java paths, Conda, work aliases, integrations) go in `~/.zshrc.local` which is sourced at the end but **never committed**. See `.zshrc.local.example` for the template.

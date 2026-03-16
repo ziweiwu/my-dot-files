@@ -1,0 +1,32 @@
+# ~/.zshrc.local — Machine-specific config (NOT tracked in git)
+# Copy this to ~/.zshrc.local and customize for your environment.
+
+# ===== MACHINE-SPECIFIC PATH =====
+# path=(
+#     /opt/homebrew/opt/openjdk@21/bin
+#     $path
+# )
+# export PATH
+
+# ===== JAVA =====
+# export JAVA_HOME="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+
+# ===== CONDA =====
+# __conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+#         . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+
+# ===== WORK ALIASES =====
+# alias ws="your-workspace-sync-command"
+
+# ===== INTEGRATIONS =====
+# [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+# [ -f "${HOME}/.iterm2_shell_integration.zsh" ] && source "${HOME}/.iterm2_shell_integration.zsh"

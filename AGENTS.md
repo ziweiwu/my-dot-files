@@ -12,10 +12,13 @@ my-dot-files/
 ├── vimrc                  # → ~/.vim/vimrc
 ├── bashrc                 # → ~/.bashrc
 ├── .zshrc                 # → ~/.zshrc
+├── .zshrc.local.example   # Template for ~/.zshrc.local (NOT symlinked)
 ├── install.sh             # Setup script for new machines
 ├── README.md              # Human-readable documentation
 └── AGENTS.md              # This file
 ```
+
+**Important:** `~/.zshrc.local` is machine-specific and must NEVER be committed to this repo. It contains sensitive or environment-specific settings (Java paths, Conda, work aliases, API tokens). The `.zshrc.local.example` file is the public template.
 
 ## Editing Guidelines
 

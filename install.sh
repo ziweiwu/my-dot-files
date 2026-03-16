@@ -83,6 +83,26 @@ mkdir -p "$HOME/.vim/swapfiles"
 mkdir -p "$HOME/.vim/undodir"
 echo "  Created ~/.vim/swapfiles and ~/.vim/undodir"
 
+# Copy .zshrc.local.example if no local config exists
+echo "Checking local config..."
+if [ ! -f "$HOME/.zshrc.local" ]; then
+    cp "$DOTFILES_DIR/.zshrc.local.example" "$HOME/.zshrc.local"
+    echo "  Created ~/.zshrc.local from example — edit it for this machine."
+else
+    echo "  ~/.zshrc.local already exists, skipping."
+fi
+
+# Install Zap plugin manager if not present
+echo "Checking Zap plugin manager..."
+ZAP_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zap"
+if [ ! -d "$ZAP_DIR" ]; then
+    echo "  Installing Zap..."
+    zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1 --keep
+    echo "  Zap installed."
+else
+    echo "  Zap already installed."
+fi
+
 echo ""
 echo "=== Done ==="
 if [ "$backed_up" = true ]; then
@@ -90,6 +110,7 @@ if [ "$backed_up" = true ]; then
 fi
 echo ""
 echo "Next steps:"
-echo "  1. Restart your shell or run: source ~/.bashrc  (or ~/.zshrc)"
-echo "  2. Open tmux and press prefix + I to install tmux plugins"
-echo "  3. Open vim and run :PlugInstall to install vim plugins"
+echo "  1. Edit ~/.zshrc.local for machine-specific settings (Java, Conda, work aliases, etc.)"
+echo "  2. Restart your shell or run: source ~/.zshrc"
+echo "  3. Open tmux and press prefix + I to install tmux plugins"
+echo "  4. Open vim and run :PlugInstall to install vim plugins"
